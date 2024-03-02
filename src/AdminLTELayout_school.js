@@ -20,6 +20,12 @@ import "react-bootstrap-typeahead/css/Typeahead.css";
 const school_id = Math.random().toString(36).slice(2);
 
 const AdminLteSchoolForm = (props) => {
+  const navigate1 = useNavigate();
+
+  function goToTeacher() {
+    navigate1("/teacher");
+  }
+
   const { idcardtemplate } = useContext(IcardContext); // Import and destructure setAccount
 
   const { setSchoolData } = useContext(IcardContext); // Import and destructure setAccount
@@ -166,9 +172,7 @@ const AdminLteSchoolForm = (props) => {
       formData.school_mobile_number &&
       formData.school_fax &&
       formData.principal_name &&
-      formData.school_address &&
-      formData.school_image1_location &&
-      formData.school_image2_location
+      formData.school_address
     ) {
       e.preventDefault();
       // Handle form submission here
@@ -419,36 +423,16 @@ const AdminLteSchoolForm = (props) => {
                   role="menu"
                   data-accordion="false"
                 >
-                  <li class="nav-header">MISCELLANEOUS</li>
                   <li class="nav-item">
                     <a href="../../iframe.html" class="nav-link">
                       <i class="nav-icon fas fa-ellipsis-h"></i>
-                      <p>Tabbed IFrame Plugin</p>
+                      <p>School</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+                  <li class="nav-item" onClick={goToTeacher}>
+                    <a href="" class="nav-link">
                       <i class="nav-icon fas fa-file"></i>
-                      <p>Documentation</p>
-                    </a>
-                  </li>
-                  <li class="nav-header">LABELS</li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon far fa-circle text-danger"></i>
-                      <p class="text">Important</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon far fa-circle text-warning"></i>
-                      <p>Warning</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon far fa-circle text-info"></i>
-                      <p>Informational</p>
+                      <p>Teachers</p>
                     </a>
                   </li>
                 </ul>
@@ -505,10 +489,11 @@ const AdminLteSchoolForm = (props) => {
                           </div>
                           <div className="form-group">
                             <label htmlFor="inputName">School Name</label>
-                            <Typeahead
+                            <input
+                              type="text"
+                              name="school_name"
+                              className="form-control"
                               id="school_name"
-                              labelKey="name"
-                              options={schoolNames}
                               placeholder="Enter School Name"
                               value={formData.school_name}
                               onChange={handleChange}

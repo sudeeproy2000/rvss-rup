@@ -1,19 +1,22 @@
-import React, { useState, useContext, useEffect } from 'react';
-import Carousel from 'react-multi-carousel'; // Import as default
-import 'react-multi-carousel/lib/styles.css';
-import Template1 from './Template1';
-import Template2 from './Template2';
-import Template3 from './Template3';
-import { IcardContext } from '../Context/DataProvider.jsx';
+import React, { useState, useContext, useEffect } from "react";
+import Carousel from "react-multi-carousel"; // Import as default
+import "react-multi-carousel/lib/styles.css";
+import Template1 from "./Template1";
+import Template2 from "./Template2";
+import Template3 from "./Template3";
+import Template4 from "./Template4.jsx";
+import { IcardContext } from "../Context/DataProvider.jsx";
 
 const componentsToShow = [
   <Template1 key="template1" />,
   <Template2 key="template2" />,
   <Template3 key="template3" />,
+  <Template4 key="template4" />,
 ];
 
 function Icard_template() {
-  const { idcardtemplate, setIdcardtemplate, isUserLoggedIn, schoolData } = useContext(IcardContext);
+  const { idcardtemplate, setIdcardtemplate, isUserLoggedIn, schoolData } =
+    useContext(IcardContext);
 
   const [selectedId, setSelectedId] = useState(null);
 
@@ -67,17 +70,19 @@ function Icard_template() {
         <div
           key={component.key}
           style={{
-            width: '100%',
-            marginBottom: '25px',
-            border: '3px solid',
-            backgroundColor: component.key === selectedId ? 'blue' : '#7F7F7F',
-            cursor: 'pointer',
+            width: "100%",
+            marginBottom: "25px",
+            border: "3px solid",
+            backgroundColor: component.key === selectedId ? "blue" : "#7F7F7F",
+            cursor: "pointer",
           }}
           onClick={() => handleComponentClick(component.key)}
         >
-          <div style={{
-            marginLeft: '35%'
-          }}>
+          <div
+            style={{
+              marginLeft: "35%",
+            }}
+          >
             {component}
           </div>
         </div>

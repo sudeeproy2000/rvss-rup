@@ -3,14 +3,14 @@ import { IcardContext } from "../Context/DataProvider.jsx";
 
 //import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
-const Template3 = () => {
+const Template4 = () => {
   const imageUrl =
-    "https://cdn.pixabay.com/photo/2014/04/02/10/35/book-303927_640.png";
+    "https://1.bp.blogspot.com/-Y2Mqj01Rx7o/WIQaMix1MjI/AAAAAAAAFAY/HnvQGqbnbjMBeYINyo_c3fClBvZPPvv9ACLcB/s320/kvs-logo.png";
   const { obj } = useContext(IcardContext); // Import and destructure setAccount
 
   return (
     <div className="row">
-      <div className="col-6" id="template1">
+      <div className="col-6" id="template4">
         <div
           style={{
             display: "flex",
@@ -32,7 +32,7 @@ const Template3 = () => {
               <div
                 style={{
                   fontFamily: "Arial, sans-serif",
-                  color: "#3498DB", // Blue
+                  color: "white", // Blue
                   fontSize: "2rem",
                   textAlign: "center",
                   padding: "2%",
@@ -54,20 +54,24 @@ const Template3 = () => {
                     style={{ width: "50px", height: "50px", marginLeft: "2%" }}
                   />
                 </div>
-                Verbina Pre School
+                <h6>KENDRIYA VIDYALAYA NO.1 SALT LAKE</h6>
               </div>
+              {/*<p>
+                An Autonomous Body Under Ministry of Education, Govt Of India
+                </p>*/}
               <p
                 style={{
                   fontFamily: "Verdana, sans-serif",
-                  color: "#E74C3C", // Red
+                  color: "white", // Red
                   textAlign: "center",
-                  fontSize: "12px", // Increased font size
+                  fontSize: "8px", // Increased font size
                   marginLeft: "30%",
                 }}
               >
-                12 West Panshila Near StarClub Pansila Kolkata -700112{" "}
+                Labony, EB Block, Salt Lake Sector-1 Kolkata-700064{" "}
               </p>
             </div>
+
             <div
               style={{
                 color: "#D35400", // Orange
@@ -78,13 +82,13 @@ const Template3 = () => {
                 paddingTop: "10%",
               }}
             >
-              Identity Card
+              Session: 2024-2025
             </div>
 
             <div
               style={{
                 height: "20%", // Reduced height
-
+                gap: "12px",
                 paddingTop: "3%",
                 paddingLeft: "5%",
                 paddingRight: "2%",
@@ -104,13 +108,16 @@ const Template3 = () => {
               >
                 <div
                   style={{
-                    backgroundColor: "#1E8449", // Green
+                    backgroundColor: "White", // Green
                     height: "100px", // Reduced height
                     width: "100px", // Reduced width
                     // borderRadius: '50%',
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    borderStyle: "solid",
+                    borderWidth: "2px",
+                    borderColor: "#FDDA0D",
                   }}
                 >
                   <div
@@ -203,4 +210,4 @@ const Template3 = () => {
     </div>
   );
 };
-export default Template3;
+export default Template4;
