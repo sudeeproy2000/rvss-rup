@@ -20,6 +20,7 @@ import Template5 from "./template/Template5.js";
 import ClassTeacherDashBoard from "./ClassTeacher/ClassTeacherDashBoard.js";
 import StudentExcelBulkUpload from "./ClassTeacher/StudentExcelUpload.js";
 import AddNewStudent from "./ClassTeacher/AddNewStudent.js";
+import Error from "./Error.jsx";
 
 const App = () => {
   const [submittedData, setSubmittedData] = useState(null);
@@ -57,6 +58,8 @@ const App = () => {
           <Route path="/addstudent" element={<AddNewStudent />} />
 
           <Route path="/classteacher" element={<ClassTeacherDashBoard />} />
+
+          <Route path="*" element={<Error />} />
         </Routes>
       </Router>
     </ContextProvider>

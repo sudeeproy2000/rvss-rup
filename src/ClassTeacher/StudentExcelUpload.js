@@ -305,7 +305,7 @@ function StudentExcelBulkUpload() {
               onChange={handleFile}
             />
             <button type="submit" className="btn btn-success btn-md mt-5">
-              UPLOAD
+              Show Excel Data
             </button>
             {typeError && (
               <div className="alert alert-danger" role="alert">
@@ -345,7 +345,10 @@ function StudentExcelBulkUpload() {
         </div>
 
         <div>
-          <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-5 border-2 rounded-lg ">
+          <button
+            onClick={goToClassTeacherHome}
+            className="bg-green-500 hover:bg-green-800 text-white font-bold py-3 px-5 border-2 rounded-lg "
+          >
             Submit
           </button>
         </div>

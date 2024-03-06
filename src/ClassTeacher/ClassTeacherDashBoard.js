@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 import StudentCard from "./StudentCard";
 import StudentPreview from "./StudentPreview";
+import StudentCardShimmer from "./StudentCardShimmer";
 
 const ClassTeacherDashBoard = () => {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -371,10 +372,15 @@ const ClassTeacherDashBoard = () => {
           </aside>
         </div>
       </body>
-      <div className="flex h-screen">
-        <StudentCard cards={cards} onSelect={handleCardSelect} />
-        <StudentPreview selectedCard={selectedCard} />
-      </div>
+
+      {!cards.length ? (
+        <StudentCardShimmer />
+      ) : (
+        <div className="flex h-screen">
+          <StudentCard cards={cards} onSelect={handleCardSelect} />
+          <StudentPreview selectedCard={selectedCard} />
+        </div>
+      )}
     </>
   );
 };
