@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 function BulkUpload() {
   const navigate = useNavigate();
 
+  const schoolData = JSON.parse(localStorage.getItem("school"));
+  console.log(schoolData.school_id);
+
   function goToBulkUpload() {
     navigate("/excel");
   }

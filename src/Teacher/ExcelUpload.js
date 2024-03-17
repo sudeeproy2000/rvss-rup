@@ -7,6 +7,8 @@ import "admin-lte/dist/css/adminlte.min.css";
 import "admin-lte/dist/js/adminlte.min.js";
 
 function ExcelBulkUpload() {
+  const schoolData = JSON.parse(localStorage.getItem("school"));
+  console.log(schoolData.school_id);
   // onchange states
   const [excelFile, setExcelFile] = useState(null);
   const [typeError, setTypeError] = useState(null);

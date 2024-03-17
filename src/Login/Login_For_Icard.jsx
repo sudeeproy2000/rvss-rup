@@ -34,6 +34,8 @@ const Login_For_Icard = (props) => {
   const handleGoogleLogin = (response) => {
     if (selectedRole === "Sign in as a school") {
       // Check if the user has completed registration
+      console.log(storedData.school_adminEmail);
+      console.log(response.email);
       if (storedData.school_adminEmail === response.email) {
         setIsUserLoggedIn(true);
         setUserLoggedInEmail(response.email);
@@ -46,7 +48,7 @@ const Login_For_Icard = (props) => {
 
         setSchoolData(matchingObject);
 
-        navigate(`/school/schoolSuccess`);
+        navigate(`/school/schoolname/${storedData.school_id}`);
       } else {
         // User has not completed registration
         navigate("/school", {

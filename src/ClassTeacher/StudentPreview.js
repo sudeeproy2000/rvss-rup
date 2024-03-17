@@ -2,12 +2,29 @@ import React, { useState } from "react";
 import { FaUpload } from "react-icons/fa6";
 import CustomWebcam from "./CustomWebCam";
 import UploadPhoto from "./UploadPhoto";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const StudentPreview = ({ selectedCard }) => {
   //const [detail, setDetail] = useState();
 
   const [showModel, setShowModel] = useState(false);
   const [photoUpload, setphotoUpload] = useState(false);
+  const [loader, setLoader] = useState(false);
+
+  const downloadPDF = () => {
+    const capture = document.querySelector("#IDCard");
+    setLoader(true);
+    html2canvas(capture).then((canvas) => {
+      const imgData = canvas.toDataURL("img/png");
+      const doc = new jsPDF("p", "mm", "a4");
+      const componentWidth = doc.internal.pageSize.getWidth();
+      const componentHeight = doc.internal.pageSize.getHeight();
+      doc.addImage(imgData, "PNG", 0, 0, componentWidth, componentHeight);
+      setLoader(false);
+      doc.save("IDCard.pdf");
+    });
+  };
 
   return (
     <>
@@ -29,7 +46,7 @@ const StudentPreview = ({ selectedCard }) => {
               overflow: "hidden", // Hide any content that overflows the container
             }}
           >
-            <div className="row">
+            <div id="IDCard" className="row">
               <div className="col-6" id="template4">
                 <div
                   style={{
@@ -181,6 +198,7 @@ An Autonomous Body Under Ministry of Education, Govt Of India
                             {showModel && (
                               <CustomWebcam
                                 onClose={() => setShowModel(false)}
+                                selectedCard={selectedCard}
                               />
                             )}
                           </div>
@@ -280,7 +298,33 @@ An Autonomous Body Under Ministry of Education, Govt Of India
             </div>
 
             {selectedCard.img ? (
-              <div></div>
+              <>
+                <div
+                  id="school_id"
+                  className="flex space-x-6 mt-2 text-2xl font-bold py-2 px-12 rounded-full"
+                >
+                  School id:{selectedCard.school_id}
+                </div>
+
+                <div id="button" className="flex space-x-6 mt-2">
+                  <button className="border-2 text-2xl bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-12 rounded-full">
+                    Accept
+                  </button>
+                  <button className="border-2 text-2xl bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full">
+                    Reject
+                  </button>
+                </div>
+
+                <div>
+                  <button
+                    className="flex space-x-6 mt-4 border-2 text-2xl bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-12 rounded-full"
+                    onClick={downloadPDF}
+                    disabled={!(loader === false)}
+                  >
+                    {loader ? <span>Downloading</span> : <span>Download</span>}
+                  </button>
+                </div>
+              </>
             ) : (
               <div id="button" className="flex space-x-6 mt-4">
                 <button
@@ -290,19 +334,13 @@ An Autonomous Body Under Ministry of Education, Govt Of India
                   Upload Student Photo
                 </button>
                 {photoUpload && (
-                  <UploadPhoto onClose={() => setphotoUpload(false)} />
+                  <UploadPhoto
+                    onClose={() => setphotoUpload(false)}
+                    selectedCard={selectedCard}
+                  />
                 )}
               </div>
             )}
-
-            <div id="button" className="flex space-x-6 mt-4">
-              <button className="border-2 text-2xl bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-12 rounded-full">
-                Accept
-              </button>
-              <button className="border-2 text-2xl bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full">
-                Reject
-              </button>
-            </div>
           </div>
         ) : (
           <h3 className="text-gray-600">Select a card to preview</h3>

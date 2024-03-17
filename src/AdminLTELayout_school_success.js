@@ -10,6 +10,7 @@ import { IcardContext } from "./Context/DataProvider.jsx";
 
 const AdminLteSchoolSuccessForm = (props) => {
   const navigate1 = useNavigate();
+  const navigate2 = useNavigate();
 
   function goToTeacher() {
     navigate1("/teacher");
@@ -72,6 +73,10 @@ const AdminLteSchoolSuccessForm = (props) => {
 
     fetchImage();
   }, [imgurl]);
+
+  function onSuccess() {
+    navigate2(`/school/schoolname/${schoolData.school_id}`);
+  }
 
   // Rest of your existing code...
 
@@ -321,111 +326,78 @@ const AdminLteSchoolSuccessForm = (props) => {
                 <div class="row">
                   <div class="col-md-6">
                     <div className="card-body">
-                      <div class="card card-primary">
-                        <div class="card-header">
-                          <h3 class="card-title">School Details</h3>
-                        </div>
-                        <form onSubmit={handleSubmit}>
-                          <div className="form-group" color="#GEGEGE">
-                            <label htmlFor="inputName">
-                              School Id is: {schoolData.school_id}{" "}
-                            </label>
+                      <>
+                        <div class="card card-primary">
+                          <div class="card-header">
+                            <h3 class="card-title">School Details</h3>
                           </div>
-                          <div className="form-group">
-                            <label htmlFor="inputName">
-                              School Name is: {schoolData.school_name}{" "}
-                            </label>
-
-                            <script>//alert("school name");</script>
-                          </div>
-                          <div className="form-group">
-                            <label htmlFor="inputName">
-                              Date of Registration: {date.split("T")[0]}
-                            </label>
-                          </div>
-                          <div className="form-group">
-                            <label htmlFor="inputName">
-                              School Address: {schoolData.school_address}{" "}
-                            </label>
-                          </div>
-                          <div className="form-group">
-                            <label htmlFor="inputName">
-                              School City: {schoolData.school_city}{" "}
-                            </label>
-                          </div>
-                          <div class="form-group">
-                            <label>State {schoolData.school_state} </label>
-                          </div>
-                          <div className="form-group">
-                            <label htmlFor="inputName">
-                              Pincode: {schoolData.school_pincode}{" "}
-                            </label>
-                          </div>
-                          <div class="row">
-                            <div class="col-12 col-sm-6">
-                              <div className="form-group">
-                                <label htmlFor="inputName">
-                                  School Phone Number 1:{" "}
-                                  {schoolData.phones.mobile_number}
-                                </label>
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">
-                                    <i class="fas fa-phone"></i>
-                                  </span>
-                                </div>
-                              </div>
-                              <div className="form-group">
-                                <label htmlFor="inputName">
-                                  School Phone Number 2: {schoolData.phones.fax}{" "}
-                                </label>
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">
-                                    <i class="fas fa-phone"></i>
-                                  </span>
-                                </div>
-                              </div>
+                          <form onSubmit={handleSubmit}>
+                            <div className="form-group" color="#GEGEGE">
+                              <label htmlFor="inputName">
+                                School Id is: {schoolData.school_id}{" "}
+                              </label>
                             </div>
-                          </div>
+                            <div className="form-group">
+                              <label htmlFor="inputName">
+                                School Name is: {schoolData.school_name}{" "}
+                              </label>
 
-                          <div className="form-group">
-                            <label htmlFor="inputEmail">
-                              School Admin Email: {schoolData.school_adminEmail}{" "}
-                            </label>
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">
-                                <i class="fas fa-envelope"></i>
-                              </span>
+                              <script>//alert("school name");</script>
                             </div>
-                          </div>
-                          <div class="card card-primary">
-                            <div class="card-header">
-                              <h3 class="card-title">Principal Details </h3>
+                            <div className="form-group">
+                              <label htmlFor="inputName">
+                                Date of Registration: {date.split("T")[0]}
+                              </label>
+                            </div>
+                            <div className="form-group">
+                              <label htmlFor="inputName">
+                                School Address: {schoolData.school_address}{" "}
+                              </label>
+                            </div>
+                            <div className="form-group">
+                              <label htmlFor="inputName">
+                                School City: {schoolData.school_city}{" "}
+                              </label>
                             </div>
                             <div class="form-group">
-                              <label>
-                                Salutation: {schoolData.principal.salutation}{" "}
-                              </label>
+                              <label>State {schoolData.school_state} </label>
                             </div>
                             <div className="form-group">
                               <label htmlFor="inputName">
-                                Principal Name: {schoolData.principal.name}{" "}
+                                Pincode: {schoolData.school_pincode}{" "}
                               </label>
                             </div>
-                            <div className="form-group">
-                              <label htmlFor="inputName">
-                                Principal Mobile Number:{" "}
-                                {schoolData.principal.phones.mobile_number}{" "}
-                              </label>
-
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                  <i class="fas fa-phone"></i>
-                                </span>
+                            <div class="row">
+                              <div class="col-12 col-sm-6">
+                                <div className="form-group">
+                                  <label htmlFor="inputName">
+                                    School Phone Number 1:{" "}
+                                    {schoolData.phones.mobile_number}
+                                  </label>
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="fas fa-phone"></i>
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="inputName">
+                                    School Phone Number 2:{" "}
+                                    {schoolData.phones.fax}{" "}
+                                  </label>
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="fas fa-phone"></i>
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
+
                             <div className="form-group">
                               <label htmlFor="inputEmail">
-                                Principal Email: {schoolData.principal.email}{" "}
+                                School Admin Email:{" "}
+                                {schoolData.school_adminEmail}{" "}
                               </label>
                               <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -433,41 +405,81 @@ const AdminLteSchoolSuccessForm = (props) => {
                                 </span>
                               </div>
                             </div>
-                          </div>
-                          <button
-                            type="button"
-                            class="btn btn-block btn-success btn-sm"
-                          >
-                            Success
-                          </button>
-                          <div>
-                            {isUserLoggedIn ? (
-                              // Show the "Edit" button when the user is logged in
-                              <button
-                                type="button"
-                                className="btn btn-block btn-success btn-sm"
-                                onClick={() =>
-                                  navigate(`/school/schoolSuccess/edit`)
-                                }
-                              >
-                                Edit
-                              </button>
-                            ) : (
-                              // Show the "Back" button when the user is not logged in
-                              <>
+                            <div class="card card-primary">
+                              <div class="card-header">
+                                <h3 class="card-title">Principal Details </h3>
+                              </div>
+                              <div class="form-group">
+                                <label>
+                                  Salutation: {schoolData.principal.salutation}{" "}
+                                </label>
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="inputName">
+                                  Principal Name: {schoolData.principal.name}{" "}
+                                </label>
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="inputName">
+                                  Principal Mobile Number:{" "}
+                                  {schoolData.principal.phones.mobile_number}{" "}
+                                </label>
+
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <i class="fas fa-phone"></i>
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="inputEmail">
+                                  Principal Email: {schoolData.principal.email}{" "}
+                                </label>
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <i class="fas fa-envelope"></i>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <button
+                              type="button"
+                              class="btn btn-block btn-success btn-sm"
+                              //onClick={goToTeacher}
+                              onClick={onSuccess}
+                            >
+                              Submit
+                            </button>
+                            <div>
+                              {isUserLoggedIn ? (
+                                // Show the "Edit" button when the user is logged in
                                 <button
                                   type="button"
-                                  className="btn btn-block btn-info btn-sm"
-                                  style={{ backgroundColor: "#3498db" }}
-                                  onClick={() => navigate(`/school`)}
+                                  className="btn btn-block btn-success btn-sm"
+                                  onClick={() =>
+                                    navigate(`/school/schoolSuccess/edit`)
+                                  }
                                 >
-                                  Back
+                                  Edit
                                 </button>
-                              </>
-                            )}
-                          </div>
-                        </form>
-                      </div>
+                              ) : (
+                                // Show the "Back" button when the user is not logged in
+                                <>
+                                  <button
+                                    type="button"
+                                    className="btn btn-block btn-info btn-sm"
+                                    style={{ backgroundColor: "#3498db" }}
+                                    onClick={() => navigate(`/school`)}
+                                  >
+                                    Back
+                                  </button>
+                                </>
+                              )}
+                            </div>
+                          </form>
+                        </div>
+                      </>
                     </div>
                   </div>
                   <div class="col-md-6">

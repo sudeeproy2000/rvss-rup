@@ -15,6 +15,7 @@ const ClassTeacherDashBoard = () => {
 
   const navigate = useNavigate();
   const navigate1 = useNavigate();
+  const navigate2 = useNavigate();
 
   function goToClassTeacherHome() {
     navigate("/classteacher");
@@ -24,10 +25,14 @@ const ClassTeacherDashBoard = () => {
     navigate1("/addstudent");
   }
 
+  function goToAttendance() {
+    navigate2("/student-attendance");
+  }
+
   const cards = [
     {
       index: "1",
-
+      school_id: "1a2b3c4d5e6",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
         "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
@@ -43,6 +48,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "2",
+      school_id: "1a2b3c4d5e6",
       img: "./Assets/2.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
@@ -59,6 +65,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "3",
+      school_id: "1a2b3c4d5e6",
       img: "./Assets/3.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
@@ -75,6 +82,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "4",
+      school_id: "1a2b3c4d5e6",
       img: "./Assets/4.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
@@ -91,6 +99,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "5",
+      school_id: "1a2b3c4d5e6",
       img: "./Assets/5.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
@@ -108,7 +117,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "6",
-
+      school_id: "1a2b3c4d5e6",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
         "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
@@ -124,6 +133,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "7",
+      school_id: "1a2b3c4d5e6",
       img: "./Assets/7.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
@@ -365,6 +375,12 @@ const ClassTeacherDashBoard = () => {
                         <p>Add New Student</p>
                       </a>
                     </li>
+                    <li class="nav-item" onClick={goToAttendance}>
+                      <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-ellipsis-h"></i>
+                        <p>Attendance</p>
+                      </a>
+                    </li>
                   </ul>
                 </nav>
               </div>
@@ -376,7 +392,7 @@ const ClassTeacherDashBoard = () => {
       {!cards.length ? (
         <StudentCardShimmer />
       ) : (
-        <div className="flex h-screen">
+        <div className="flex h-screen bg-blue-400">
           <StudentCard cards={cards} onSelect={handleCardSelect} />
           <StudentPreview selectedCard={selectedCard} />
         </div>

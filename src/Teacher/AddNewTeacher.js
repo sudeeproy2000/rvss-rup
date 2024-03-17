@@ -1,12 +1,48 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import BulkUpload from "./TeacherBulkUpload";
 import Logo from "../assets/images/rvssGroup_white.png";
 import "admin-lte/plugins/fontawesome-free/css/all.min.css";
 import "admin-lte/plugins/daterangepicker/daterangepicker.js";
 import "admin-lte/dist/css/adminlte.min.css";
 import "admin-lte/dist/js/adminlte.min.js";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function AddNewTeacher() {
+  const data = {
+    firstname: "",
+    lastname: "",
+    employee: "",
+
+    email: "",
+    phone: "",
+    pgttgt: "",
+
+    teacher: "",
+  };
+
+  const schoolData = JSON.parse(localStorage.getItem("school"));
+  //console.log(schoolData);
+
+  const [inputData, setInputData] = useState(data);
+
+  const handelData = (e) => {
+    setInputData({ ...inputData, [e.target.name]: e.target.value });
+  };
+
+  const handelSubmit = (e) => {
+    alert("hi");
+    let obj = { schoolId: schoolData.school_id };
+    setInputData({ ...inputData, obj });
+    console.log(inputData);
+    e.preventDefault();
+    axios
+      .post("https://jsonplaceholder.typicode.com/users", inputData) //PASTE THE POST LINK HERE
+      .then((response) => {
+        console.log(response);
+      });
+  };
+
   return (
     <>
       <body class="hold-transition sidebar-mini">
@@ -256,10 +292,12 @@ function AddNewTeacher() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="first-name"
+                  name="firstname"
                   id="first-name"
                   autoComplete="given-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6 p-3"
+                  value={inputData.firstname}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -275,10 +313,12 @@ function AddNewTeacher() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="last-name"
+                  name="lastname"
                   id="last-name"
                   autoComplete="family-name"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.lastname}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -297,6 +337,8 @@ function AddNewTeacher() {
                   type="email"
                   autoComplete="email"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.email}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -315,6 +357,8 @@ function AddNewTeacher() {
                   type="number"
                   autoComplete="number"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.phone}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -333,6 +377,8 @@ function AddNewTeacher() {
                   id="employee"
                   autoComplete="address-level2"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.employee}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -347,9 +393,11 @@ function AddNewTeacher() {
               <div className="mt-2">
                 <select
                   id="class-teacher"
-                  name="class-teacher"
+                  name="pgttgt"
                   autoComplete="class-teacher"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-xl sm:leading-6 text-xl p-3"
+                  value={inputData.pgttgt}
+                  onChange={handelData}
                 >
                   <option>PGT</option>
                   <option>TGT</option>
@@ -367,9 +415,11 @@ function AddNewTeacher() {
               <div className="mt-2">
                 <select
                   id="class-teacher"
-                  name="class-teacher"
+                  name="teacher"
                   autoComplete="class-teacher"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-xl sm:leading-6 text-xl"
+                  value={inputData.teacher}
+                  onChange={handelData}
                 >
                   <option>Head Master</option>
                   <option>Assistant Teacher</option>
@@ -390,7 +440,7 @@ function AddNewTeacher() {
                 <div className="flex items-center gap-x-3">
                   <input
                     id="class-teacher-yes"
-                    name="class-teacher"
+                    name="class-teacher-yes"
                     type="radio"
                     className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600 p-3 text-xl"
                   />
@@ -404,7 +454,7 @@ function AddNewTeacher() {
                 <div className="flex items-center gap-x-3">
                   <input
                     id="class-teacher-no"
-                    name="class-teacher"
+                    name="classteacher"
                     type="radio"
                     className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600 p-3 text-xl"
                   />
@@ -485,7 +535,10 @@ function AddNewTeacher() {
             Cancel
           </button>
 
-          <button className="border-2 text-4xl bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-24 rounded-full">
+          <button
+            className="border-2 text-4xl bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-24 rounded-full"
+            onClick={handelSubmit}
+          >
             Save
           </button>
         </div>

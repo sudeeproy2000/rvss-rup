@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 
-const UploadPhoto = ({ onClose }) => {
+const UploadPhoto = ({ onClose, selectedCard }) => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleChange = (event) => {
@@ -39,6 +39,12 @@ const UploadPhoto = ({ onClose }) => {
                 className="block w-full px-3 py-2 text-sm border rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-transparent"
                 onChange={handleChange}
               />
+              <div
+                id="school_id"
+                className="flex space-x-6 mt-2 text-2xl font-bold py-2 px-12 rounded-full"
+              >
+                School id:{selectedCard.school_id}
+              </div>
               <button
                 type="submit"
                 className="inline-flex items-center px-4 py-2 bg-indigo-500 text-white font-bold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"

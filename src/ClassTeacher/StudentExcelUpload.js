@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 function StudentExcelBulkUpload() {
   const navigate = useNavigate();
   const navigate1 = useNavigate();
+  const navigate2 = useNavigate();
 
   function goToClassTeacherHome() {
     navigate("/classteacher");
@@ -17,6 +18,10 @@ function StudentExcelBulkUpload() {
 
   function goToAddNewStudent() {
     navigate1("/addstudent");
+  }
+
+  function goToAttendance() {
+    navigate2("/student-attendance");
   }
 
   // onchange states
@@ -284,6 +289,12 @@ function StudentExcelBulkUpload() {
                         <p>Add New Student</p>
                       </a>
                     </li>
+                    <li class="nav-item" onClick={goToAttendance}>
+                      <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-ellipsis-h"></i>
+                        <p>Attendance</p>
+                      </a>
+                    </li>
                   </ul>
                 </nav>
               </div>
@@ -344,14 +355,38 @@ function StudentExcelBulkUpload() {
           </div>
         </div>
 
-        <div>
-          <button
-            onClick={goToClassTeacherHome}
-            className="bg-green-500 hover:bg-green-800 text-white font-bold py-3 px-5 border-2 rounded-lg "
+        <>
+          <div
+            id="school_id"
+            className="flex space-x-6 mt-4 text-2xl font-bold py-2 px-12 rounded-full bg-slate-200 mb-4"
           >
-            Submit
-          </button>
-        </div>
+            <label
+              htmlFor="schoolid"
+              className="block text-xl font-medium leading-6 text-gray-900 p-3"
+            >
+              School ID
+            </label>
+            <div className="mt-2">
+              <input
+                id="schoolid"
+                name="schoolid"
+                type=""
+                required
+                autoComplete="number"
+                className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              onClick={goToClassTeacherHome}
+              className="bg-green-500 hover:bg-green-800 text-white font-bold py-3 px-5 border-2 rounded-lg "
+            >
+              Submit
+            </button>
+          </div>
+        </>
       </div>
     </>
   );

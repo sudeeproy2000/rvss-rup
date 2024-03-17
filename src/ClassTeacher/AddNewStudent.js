@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BulkUpload from "./StudentBulkUpload";
 import Logo from "../assets/images/rvssGroup_white.png";
 import "admin-lte/plugins/fontawesome-free/css/all.min.css";
@@ -6,10 +6,12 @@ import "admin-lte/plugins/daterangepicker/daterangepicker.js";
 import "admin-lte/dist/css/adminlte.min.css";
 import "admin-lte/dist/js/adminlte.min.js";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function AddNewStudent() {
   const navigate = useNavigate();
   const navigate1 = useNavigate();
+  const navigate2 = useNavigate();
 
   function goToClassTeacherHome() {
     navigate("/classteacher");
@@ -18,6 +20,37 @@ function AddNewStudent() {
   function goToAddNewStudent() {
     navigate1("/addstudent");
   }
+
+  function goToAttendance() {
+    navigate2("/student-attendance");
+  }
+
+  const data = {
+    firstname: "",
+    lastname: "",
+    fname: "",
+    dob: "",
+    email: "",
+    phone: "",
+    schoolid: "",
+    studentid: "",
+    roll: "",
+  };
+
+  const [inputData, setInputData] = useState(data);
+
+  const handelData = (e) => {
+    setInputData({ ...inputData, [e.target.name]: e.target.value });
+  };
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://jsonplaceholder.typicode.com/users", inputData) //PASTE THE POST LINK HERE
+      .then((response) => {
+        console.log(response);
+      });
+  };
 
   return (
     <>
@@ -50,163 +83,11 @@ function AddNewStudent() {
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  data-widget="navbar-search"
-                  href="#"
-                  role="button"
-                >
-                  <i class="fas fa-search"></i>
-                </a>
-                <div class="navbar-search-block">
-                  <form class="form-inline">
-                    <div class="input-group input-group-sm">
-                      <input
-                        class="form-control form-control-navbar"
-                        type="search"
-                        placeholder="Search"
-                        aria-label="Search"
-                      ></input>
-                      <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                          <i class="fas fa-search"></i>
-                        </button>
-                        <button
-                          class="btn btn-navbar"
-                          type="button"
-                          data-widget="navbar-search"
-                        >
-                          <i class="fas fa-times"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                  <i class="far fa-comments"></i>
-                  <span class="badge badge-danger navbar-badge">3</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                  <a href="#" class="dropdown-item">
-                    <div class="media">
-                      <img
-                        src="../../dist/img/user1-128x128.jpg"
-                        alt="User Avatar"
-                        class="img-size-50 mr-3 img-circle"
-                      ></img>
-                      <div class="media-body">
-                        <h3 class="dropdown-item-title">
-                          Brad Diesel
-                          <span class="float-right text-sm text-danger">
-                            <i class="fas fa-star"></i>
-                          </span>
-                        </h3>
-                        <p class="text-sm">Call me whenever you can...</p>
-                        <p class="text-sm text-muted">
-                          <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                    <div class="media">
-                      <img
-                        src="../../dist/img/user8-128x128.jpg"
-                        alt="User Avatar"
-                        class="img-size-50 img-circle mr-3"
-                      ></img>
-                      <div class="media-body">
-                        <h3 class="dropdown-item-title">
-                          John Pierce
-                          <span class="float-right text-sm text-muted">
-                            <i class="fas fa-star"></i>
-                          </span>
-                        </h3>
-                        <p class="text-sm">I got your message bro</p>
-                        <p class="text-sm text-muted">
-                          <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                    <div class="media">
-                      <img
-                        src="../../dist/img/user3-128x128.jpg"
-                        alt="User Avatar"
-                        class="img-size-50 img-circle mr-3"
-                      ></img>
-                      <div class="media-body">
-                        <h3 class="dropdown-item-title">
-                          Nora Silvester
-                          <span class="float-right text-sm text-warning">
-                            <i class="fas fa-star"></i>
-                          </span>
-                        </h3>
-                        <p class="text-sm">The subject goes here</p>
-                        <p class="text-sm text-muted">
-                          <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item dropdown-footer">
-                    See All Messages
-                  </a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                  <i class="far fa-bell"></i>
-                  <span class="badge badge-warning navbar-badge">15</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                  <span class="dropdown-item dropdown-header">
-                    15 Notifications
-                  </span>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i> 4 new messages
-                    <span class="float-right text-muted text-sm">3 mins</span>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> 8 friend requests
-                    <span class="float-right text-muted text-sm">12 hours</span>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> 3 new reports
-                    <span class="float-right text-muted text-sm">2 days</span>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item dropdown-footer">
-                    See All Notifications
-                  </a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
                   data-widget="fullscreen"
                   href="#"
                   role="button"
                 >
                   <i class="fas fa-expand-arrows-alt"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  data-widget="control-sidebar"
-                  data-slide="true"
-                  href="#"
-                  role="button"
-                >
-                  <i class="fas fa-th-large"></i>
                 </a>
               </li>
             </ul>
@@ -240,6 +121,12 @@ function AddNewStudent() {
                         <p>Add New Student</p>
                       </a>
                     </li>
+                    <li class="nav-item" onClick={goToAttendance}>
+                      <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-ellipsis-h"></i>
+                        <p>Attendance</p>
+                      </a>
+                    </li>
                   </ul>
                 </nav>
               </div>
@@ -248,11 +135,11 @@ function AddNewStudent() {
         </div>
       </body>
 
-      <div className="mr-5">
+      <div className="mr-5 bg-blue-400">
         <BulkUpload />
       </div>
 
-      <form className="p-10">
+      <form className="p-10 bg-blue-400">
         <div className="border-2 p-5">
           <h2 className="text-5xl font-semibold leading-7 text-white p-5 bg-indigo-500">
             Add Student Manually
@@ -268,10 +155,12 @@ function AddNewStudent() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="first-name"
+                  name="firstname"
                   id="first-name"
                   autoComplete="given-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6 p-3"
+                  value={inputData.firstname}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -286,10 +175,12 @@ function AddNewStudent() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="last-name"
+                  name="lastname"
                   id="last-name"
                   autoComplete="family-name"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.lastname}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -304,10 +195,12 @@ function AddNewStudent() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="first-name"
+                  name="fname"
                   id="first-name"
                   autoComplete="given-name"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.fname}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -326,6 +219,8 @@ function AddNewStudent() {
                   name="dob"
                   autoComplete="dob"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.dob}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -344,6 +239,8 @@ function AddNewStudent() {
                   type="email"
                   autoComplete="email"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.email}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -362,6 +259,28 @@ function AddNewStudent() {
                   type="number"
                   autoComplete="number"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.phone}
+                  onChange={handelData}
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-4 mt-5">
+              <label
+                htmlFor="schoolid"
+                className="block text-xl font-medium leading-6 text-gray-900 p-3"
+              >
+                School ID
+              </label>
+              <div className="mt-2">
+                <input
+                  id="schoolid"
+                  name="schoolid"
+                  type=""
+                  autoComplete="number"
+                  className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.schoolid}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -375,11 +294,13 @@ function AddNewStudent() {
               </label>
               <div className="mt-2">
                 <input
-                  type="employee"
-                  name="employee"
-                  id="employee"
+                  type=""
+                  name="studentid"
+                  id="studentid"
                   autoComplete="address-level2"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.studentid}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -393,12 +314,14 @@ function AddNewStudent() {
               </label>
               <div className="mt-2">
                 <select
-                  id="class-teacher"
-                  name="class-teacher"
-                  autoComplete="class-teacher"
+                  id="class"
+                  name="class"
+                  autoComplete="class"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-xl sm:leading-6"
+                  value={inputData.class}
+                  onChange={handelData}
                 >
-                  <option>1</option>
+                  <option value="">1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
@@ -472,6 +395,8 @@ function AddNewStudent() {
                   type="number"
                   autoComplete="roll"
                   className="p-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-xl sm:leading-6"
+                  value={inputData.roll}
+                  onChange={handelData}
                 />
               </div>
             </div>
@@ -483,7 +408,10 @@ function AddNewStudent() {
             Cancel
           </button>
 
-          <button className="border-2 text-4xl bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-24 rounded-full">
+          <button
+            className="border-2 text-4xl bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-24 rounded-full"
+            onClick={handelSubmit}
+          >
             Save
           </button>
         </div>

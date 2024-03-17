@@ -21,6 +21,8 @@ import ClassTeacherDashBoard from "./ClassTeacher/ClassTeacherDashBoard.js";
 import StudentExcelBulkUpload from "./ClassTeacher/StudentExcelUpload.js";
 import AddNewStudent from "./ClassTeacher/AddNewStudent.js";
 import Error from "./Error.jsx";
+import AminLTELayoutSchoolHomePage from "./AminLTELayoutSchoolHomePage.js";
+import Attendance from "./ClassTeacher/Attendance.js";
 
 const App = () => {
   const [submittedData, setSubmittedData] = useState(null);
@@ -37,12 +39,17 @@ const App = () => {
 
           <Route exact path="/school" element={<AdminLteSchoolForm />} />
           <Route
-            path="school/schoolSuccess"
+            path="school/schoolSuccess/"
             element={<AdminLteSchoolSuccessForm />}
           />
           <Route
             path="school/schoolSuccess/edit"
             element={<AdminLteSchoolFormEdit />}
+          />
+
+          <Route
+            path="school/schoolname/:id"
+            element={<AminLTELayoutSchoolHomePage />}
           />
 
           <Route path="/student" element={<AdminLteStudentForm />} />
@@ -58,6 +65,8 @@ const App = () => {
           <Route path="/addstudent" element={<AddNewStudent />} />
 
           <Route path="/classteacher" element={<ClassTeacherDashBoard />} />
+
+          <Route path="/student-attendance" element={<Attendance />} />
 
           <Route path="*" element={<Error />} />
         </Routes>
