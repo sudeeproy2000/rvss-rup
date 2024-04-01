@@ -11,11 +11,126 @@ import { useNavigate } from "react-router-dom";
 
 const Attendance = () => {
   // Sample data for demonstration
+
   const data = [
-    { id: 1, studentID: 1, name: "John Doe" },
-    { id: 2, studentID: 2, name: "Jane Smith" },
-    { id: 3, studentID: 3, name: "Michael Johnson" },
-    // Add more data as needed
+    {
+      index: "1",
+      school_id: "1a2b3c4d5e6",
+      school_name: "Kendriya Vidyalaya No.1, Salt Lake",
+      school_address:
+        "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
+      principal: { name: "S Roy" },
+      student: {
+        name: "Sudeep Roy",
+        father_name: "Swapan Roy",
+        dob: "19/01/2000",
+        b_group: "O+",
+        contact_no: "7031032675",
+        address: "608 Denesik Square, Port Rayfordbury, MN 48505",
+      },
+    },
+    {
+      index: "2",
+      school_id: "1a2b3c4d5e6",
+      img: "./Assets/2.jpg",
+      school_name: "Kendriya Vidyalaya No.1, Salt Lake",
+      school_address:
+        "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
+      principal: { name: "S Roy" },
+      student: {
+        name: "Sudip Das",
+        father_name: "P Das",
+        dob: "19/01/1987",
+        b_group: "AB+",
+        contact_no: "7031234567",
+        address: "43035 Johnsie Port, Port Elmira, CT 49298-6961",
+      },
+    },
+    {
+      index: "3",
+      school_id: "1a2b3c4d5e6",
+      img: "./Assets/3.jpg",
+      school_name: "Kendriya Vidyalaya No.1, Salt Lake",
+      school_address:
+        "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
+      principal: { name: "S Roy" },
+      student: {
+        name: "S Roy",
+        father_name: "D Roy",
+        dob: "19/02/2000",
+        b_group: "A+",
+        contact_no: "7031123475",
+        address: "70103 Ward Stravenue, New Benedictbury, MN 37616-6713",
+      },
+    },
+    {
+      index: "4",
+      school_id: "1a2b3c4d5e6",
+      img: "./Assets/4.jpg",
+      school_name: "Kendriya Vidyalaya No.1, Salt Lake",
+      school_address:
+        "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
+      principal: { name: "S Roy" },
+      student: {
+        name: "Sudeep Roy",
+        father_name: "Swapan Roy",
+        dob: "19/01/2000",
+        b_group: "O+",
+        contact_no: "7031032675",
+        address: "Suite 960 8549 Langosh Neck, New Shara, VT 24824",
+      },
+    },
+    {
+      index: "5",
+      school_id: "1a2b3c4d5e6",
+      img: "./Assets/5.jpg",
+      school_name: "Kendriya Vidyalaya No.1, Salt Lake",
+      school_address:
+        "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
+      principal: { name: "S Roy" },
+      student: {
+        name: "Sudeep Roy",
+        father_name: "Swapan Roy",
+        dob: "19/01/2000",
+        b_group: "O+",
+        contact_no: "7031032675",
+        address:
+          "Suite 499 4514 Altenwerth Viaduct, Port Kristofer, NJ 48194-9062",
+      },
+    },
+    {
+      index: "6",
+      school_id: "1a2b3c4d5e6",
+      school_name: "Kendriya Vidyalaya No.1, Salt Lake",
+      school_address:
+        "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
+      principal: { name: "S Roy" },
+      student: {
+        name: "Samir Roy",
+        father_name: "Swapan Roy",
+        dob: "19/01/2000",
+        b_group: "O+",
+        contact_no: "7031032675",
+        address: "6500 Krystal Glen, South Ianmouth, ME 87157-8846",
+      },
+    },
+    {
+      index: "7",
+      school_id: "1a2b3c4d5e6",
+      img: "./Assets/7.jpg",
+      school_name: "Kendriya Vidyalaya No.1, Salt Lake",
+      school_address:
+        "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
+      principal: { name: "S Roy" },
+      student: {
+        name: "Sudeep Roy",
+        father_name: "Swapan Roy",
+        dob: "19/01/2000",
+        b_group: "O+",
+        contact_no: "7031032675",
+        address: "115 Hagenes Plain, New Dwayneberg, CA 52776-1425",
+      },
+    },
   ];
 
   //side panel navigation
@@ -151,6 +266,25 @@ const Attendance = () => {
         </div>
       </body>
 
+      <div className="flex flex-row justify-around font-semibold p-4 bg-orange-50 mb-5">
+        <div className="flex flex-row gap-2.5">
+          <div className="part1">Class</div>
+          <div>:</div>
+          <div className="part2">5</div>
+        </div>
+        <div className="flex flex-row gap-2.5">
+          <div className="part1">Section</div>
+          <div>:</div>
+          <div className="part2">A</div>
+        </div>
+        <div className="flex flex-row gap-2.5">
+          <div className="part1">Class Teacher Name</div>
+          <div>:</div>
+          <div className="part2">Satarupa Deb</div>
+        </div>
+        <div className="cursor-pointer">Logout</div>
+      </div>
+
       <div className="h-screen bg-blue-400 flex flex-col justify-center items-center ">
         <div className="bg-white p-5 w-full h-full lg:w-5/6 xl:w-5/6 flex flex-col justify-center items-center">
           <div className="flex justify-around items-center">
@@ -174,12 +308,12 @@ const Attendance = () => {
             </thead>
             <tbody>
               {data.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.name}</td>
+                <tr key={item.index}>
+                  <td>{item.student.name}</td>
                   <td>
                     <input
                       type="radio"
-                      name={`attendance_${item.id}`}
+                      name={`attendance_${item.index}`}
                       value="present"
                       onChange={handleRadioChange}
                     />
@@ -187,7 +321,7 @@ const Attendance = () => {
                   <td>
                     <input
                       type="radio"
-                      name={`attendance_${item.id}`}
+                      name={`attendance_${item.index}`}
                       value="absent"
                       onChange={handleRadioChange}
                     />
@@ -196,12 +330,18 @@ const Attendance = () => {
               ))}
             </tbody>
           </table>
-          <button
-            className="border-2 text-4xl bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-24 rounded-full"
-            onClick={handleSubmit}
-          >
-            Submit Attendance
-          </button>
+          <div id="button" className="flex justify-end space-x-6 mt-6 gap-8 ">
+            <button className="border-2 text-4xl bg-red-500 hover:bg-red-700 text-white font-bold py-4 px-24 rounded-full">
+              Cancel
+            </button>
+
+            <button
+              className="border-2 text-4xl bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-24 rounded-full"
+              onClick={handleSubmit}
+            >
+              Submit Attendance
+            </button>
+          </div>
         </div>
       </div>
     </>

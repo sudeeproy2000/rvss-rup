@@ -46,3 +46,28 @@ td {
 td {
   font-size: 1.4rem;
 }
+
+/* attendance.css */
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid; /* Set default border color */
+  outline: none;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/* Style for Present radio button */
+input[type="radio"][value="present"]:checked {
+  background-color: green;
+  border-color: green;
+}
+
+/* Style for Absent radio button */
+input[type="radio"][value="absent"]:checked {
+  background-color: red;
+  border-color: red;
+}

@@ -27,141 +27,249 @@ const StudentPreview = ({ selectedCard }) => {
   };
 
   return (
-    <>
+    <div style={{ padding: "20px" }}>
       {selectedCard ? (
-        <div
-          className="flex flex-col h-screen justify-center items-center"
-          style={{ width: "1015px", height: "638px" }}
-        >
-          <div className="flex justify-center items-center ">
-            <div className="w-324 h-204 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col">
-              <div id="header" className="flex bg-red-950">
-                <div className="basis-1/5 place-items-center p-3">
-                  <img src="./Assets/id-school-logo.png" alt="" />
-                </div>
-                <div className="flex flex-col justify-center basis-4/5 place-items-center text-white">
-                  <h1 className="font-semibold text-2xl ">
-                    {selectedCard.school_name}
-                  </h1>
-                  <p className="font-light text-yellow-600 text-sm">
-                    An autoimmune body under Ministry of Education, Govt Of
-                    India
-                  </p>
-                  <h6 className="">{selectedCard.school_address} </h6>
-                </div>
-              </div>
-
+        <>
+          <div
+            style={{
+              backgroundColor: "white",
+              border: "2px solid black",
+              height: "507.5px",
+              width: "319px",
+            }}
+          >
+            <div
+              id="header"
+              style={{
+                display: "flex",
+                backgroundColor: "rgb(69 10 10)",
+                height: "95px",
+                paddingTop: "3px",
+              }}
+            >
               <div
-                id="school-contact-details"
-                className="flex justify-around bg-yellow-600 text-white"
+                style={{
+                  width: "25%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "0.70rem ",
+                }}
               >
-                <h4>Email:</h4>
-                <h4>Phone No:</h4>
+                <img src="./Assets/id-school-logo.png" alt="" />
               </div>
-
-              <div id="session" className="flex justify-center items-center">
-                <h3 className="text-lg text-blue-800">Session: 2024-2025</h3>
-              </div>
-
-              <div id="student-photo-&-details" className="flex p-1">
-                {selectedCard.img ? (
-                  <div
-                    id="student photo"
-                    className="basis-1/3 flex justify-center place-items-center"
-                  >
-                    <img src={selectedCard.img} alt="" className="w-74 h-99" />
-                  </div>
-                ) : (
-                  <div
-                    id="student photo"
-                    className="basis-1/3 flex justify-center place-items-center"
-                  >
-                    <FaUpload
-                      className="size-16 "
-                      onClick={() => setShowModel(true)}
-                    />
-                    {showModel && (
-                      <CustomWebcam
-                        onClose={() => setShowModel(false)}
-                        selectedCard={selectedCard}
-                      />
-                    )}
-                  </div>
-                )}
-
-                <div
-                  id="student-details"
-                  className="basis-2/3 flex flex-col place-items-center justify-center border-2"
+              <div
+                style={{
+                  width: "75%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <h1
+                  style={{
+                    fontSize: "13.5px",
+                    color: "white",
+                    textTransform: "capitalize",
+                    fontWeight: "bold",
+                  }}
                 >
-                  <h1 className="text-lg font-medium p-1">
-                    Name:{" "}
-                    <span className="text-blue-800">
-                      {selectedCard.student.name}
-                    </span>
-                  </h1>
-                  <div className="flex gap-12 p-1 text-sm">
-                    <h3>
-                      Class:<span className="text-blue-800">X</span>
-                    </h3>
-                    <h3>
-                      Section:<span className="text-blue-800">A</span>
-                    </h3>
-                  </div>
-                  <h3 className="p-1 text-sm">
-                    Father's Name:
-                    <span className="text-blue-800">
-                      {selectedCard.student.father_name}
-                    </span>
-                  </h3>
-                  <div className="flex gap-12 p-1 text-sm">
-                    <h3>
-                      Date of Birth:
-                      <span className="text-blue-800">
-                        {selectedCard.student.dob}
-                      </span>
-                    </h3>
-                    <h3>
-                      Blood Group:
-                      <span className="text-blue-800">
-                        {selectedCard.student.b_groop}
-                      </span>
-                    </h3>
-                  </div>
-                  <h3 className="p-1 text-sm">
-                    Contact No:
-                    <span className="text-blue-800">
-                      {selectedCard.student.contact_no}
-                    </span>
-                  </h3>
-                  <h3 className="p-1 text-sm">
-                    Student ID UBI:
-                    <span className="text-blue-800">1234567890</span>
-                  </h3>
-                  <div className="p-1 text-sm">
-                    <h3>
-                      Address:
-                      <span className="text-blue-800">
-                        {selectedCard.student.address}
-                      </span>
-                    </h3>
-                  </div>
-                </div>
+                  {selectedCard.school_name}
+                </h1>
+                <p
+                  style={{
+                    fontSize: "7px",
+                    lineHeight: "5px",
+                    color: "rgb(217 119 6)",
+                  }}
+                >
+                  An autoimmune body under Ministry of Education, Govt Of India
+                </p>
+                <h6
+                  style={{
+                    color: "white",
+                    fontSize: "5px",
+                    lineHeight: "5px",
+                  }}
+                >
+                  {selectedCard.school_address}
+                </h6>
               </div>
+            </div>
 
-              <div
-                id="p-signature"
-                className="flex flex-col place-items-end mr-5"
+            <div
+              id="school-contact-details"
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                backgroundColor: "rgb(217 119 6)",
+                color: "white",
+                height: "15px",
+                alignItems: "center",
+              }}
+            >
+              <h4 style={{ fontSize: 8 }}>Email:</h4>
+              <h4 style={{ fontSize: 8 }}>Phone No:</h4>
+            </div>
+
+            <div
+              id="session"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "20px",
+                marginBottom: "50px",
+              }}
+            >
+              <h3 style={{ fontSize: 13, color: "blue" }}>
+                Session: 2024-2025
+              </h3>
+            </div>
+
+            <div
+              id="student-photo"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "26px",
+              }}
+            >
+              {selectedCard.img ? (
+                <div id="student photo" style={{ flexBasis: "26%" }}>
+                  <img
+                    src={selectedCard.img}
+                    alt=""
+                    style={{ width: 74, height: 99 }}
+                  />
+                </div>
+              ) : (
+                <div id="student photo">
+                  <FaUpload
+                    className="size-24 "
+                    onClick={() => setShowModel(true)}
+                  />
+                  {showModel && (
+                    <CustomWebcam
+                      onClose={() => setShowModel(false)}
+                      selectedCard={selectedCard}
+                    />
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div
+              id="student-name"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "26px",
+                marginTop: "50px",
+              }}
+            >
+              <h1
+                style={{ fontSize: "16px", alignItems: "center", padding: "4" }}
               >
-                <img
-                  id="principle-signature"
-                  src="./Assets/signature.png"
-                  alt=""
-                  className="mr-5 w-12 h-5 "
-                />
-                <h4 className="flex justify-end text-xs">
-                  Principle Signature
-                </h4>
+                Name:{" "}
+                <span style={{ fontSize: "18px", color: "blue" }}>
+                  {selectedCard.student.name}
+                </span>
+              </h1>
+            </div>
+
+            <div
+              id="student-photo-&-details"
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                padding: "0.25rem",
+                height: "14px",
+                paddingLeft: "45px",
+                paddingRight: "20px",
+                marginTop: "70px",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <div
+                id="student-details"
+                style={{
+                  width: "calc(66.66% - 4px)",
+                  flex: 1,
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "5px",
+                  height: "130px",
+                  padding: "10px",
+                }}
+              >
+                <div style={{ display: "flex", gap: "15px" }}>
+                  <h3 style={{ margin: 0, fontSize: 11, lineHeight: 1.5 }}>
+                    Class:<span style={{ color: "blue" }}>X</span>
+                  </h3>
+                  <h3 style={{ margin: 0, fontSize: 11, lineHeight: 1.5 }}>
+                    Section:<span style={{ color: "blue" }}>A</span>
+                  </h3>
+                </div>
+                <h3 style={{ margin: 0, fontSize: 11, lineHeight: 1.5 }}>
+                  Father's Name:{" "}
+                  <span style={{ color: "blue" }}>
+                    {selectedCard.student.father_name}
+                  </span>
+                </h3>
+
+                <h3 style={{ margin: 0, fontSize: 11, lineHeight: 1.5 }}>
+                  Date of Birth:{" "}
+                  <span style={{ color: "blue" }}>
+                    {selectedCard.student.dob}
+                  </span>
+                </h3>
+                <h3 style={{ margin: 0, fontSize: 11, lineHeight: 1.5 }}>
+                  Blood Group:{" "}
+                  <span style={{ fontWeight: "bold", color: "red" }}>O+</span>
+                </h3>
+
+                <h3 style={{ margin: 0, fontSize: 11, lineHeight: 1.5 }}>
+                  Contact No:{" "}
+                  <span style={{ color: "blue" }}>
+                    {selectedCard.student.contact_no}
+                  </span>
+                </h3>
+                <h3 style={{ margin: 0, fontSize: 11, lineHeight: 1.5 }}>
+                  Student ID UBI:{" "}
+                  <span style={{ color: "blue" }}>1234567890</span>
+                </h3>
+                <h3 style={{ margin: 0, fontSize: 11, lineHeight: 1.5 }}>
+                  Address:{" "}
+                  <span style={{ color: "blue" }}>
+                    {selectedCard.student.address}
+                  </span>
+                </h3>
               </div>
+            </div>
+
+            <div
+              id="p-signature"
+              style={{
+                display: "flex",
+                alignItems: "flex-end",
+                flexDirection: "column",
+                marginTop: "70px",
+                marginRight: "15px",
+              }}
+            >
+              <img
+                id="principle-signature"
+                src="./Assets/signature.png"
+                alt=""
+                className="mr-5 w-12 h-5 "
+              />
+              <h4 style={{ fontSize: "11px" }}>Principle Signature</h4>
             </div>
           </div>
           {selectedCard.img ? (
@@ -208,11 +316,11 @@ const StudentPreview = ({ selectedCard }) => {
               )}
             </div>
           )}
-        </div>
+        </>
       ) : (
         <h3 className="text-gray-600">Select a card to preview</h3>
       )}
-    </>
+    </div>
   );
 };
 

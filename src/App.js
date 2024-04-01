@@ -25,6 +25,7 @@ import AminLTELayoutSchoolHomePage from "./AminLTELayoutSchoolHomePage.js";
 import Attendance from "./ClassTeacher/Attendance.js";
 
 import ClassTeacherDashBoardTest from "./Test/ClassTeacherDashBoard.js";
+import IdCardHorizontal from "./Test/Test2.js";
 
 const App = () => {
   const [submittedData, setSubmittedData] = useState(null);
@@ -71,6 +72,8 @@ const App = () => {
           <Route path="/student-attendance" element={<Attendance />} />
 
           <Route path="/test" element={<ClassTeacherDashBoardTest />} />
+
+          <Route path="/icardhorizontal" element={<IdCardHorizontal />} />
 
           <Route path="*" element={<Error />} />
         </Routes>

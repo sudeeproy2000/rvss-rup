@@ -32,6 +32,7 @@ const ClassTeacherDashBoard = () => {
   const cards = [
     {
       index: "1",
+      type: "horizontal",
       school_id: "1a2b3c4d5e6",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
@@ -48,6 +49,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "2",
+      type: "horizontal",
       school_id: "1a2b3c4d5e6",
       img: "./Assets/2.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
@@ -65,6 +67,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "3",
+      type: "horizontal",
       school_id: "1a2b3c4d5e6",
       img: "./Assets/3.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
@@ -82,6 +85,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "4",
+      type: "horizontal",
       school_id: "1a2b3c4d5e6",
       img: "./Assets/4.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
@@ -99,6 +103,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "5",
+      type: "horizontal",
       school_id: "1a2b3c4d5e6",
       img: "./Assets/5.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
@@ -117,6 +122,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "6",
+      type: "horizontal",
       school_id: "1a2b3c4d5e6",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
@@ -133,6 +139,7 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "7",
+      type: "horizontal",
       school_id: "1a2b3c4d5e6",
       img: "./Assets/7.jpg",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
