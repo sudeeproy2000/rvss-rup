@@ -32,7 +32,7 @@ const ClassTeacherDashBoard = () => {
   const cards = [
     {
       index: "1",
-      type: "horizontal",
+      type: "vertical",
       school_id: "1a2b3c4d5e6",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
