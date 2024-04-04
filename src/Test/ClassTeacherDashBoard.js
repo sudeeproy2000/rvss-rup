@@ -34,6 +34,7 @@ const ClassTeacherDashBoard = () => {
       index: "1",
       type: "vertical",
       school_id: "1a2b3c4d5e6",
+      img: "",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
         "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
@@ -51,7 +52,7 @@ const ClassTeacherDashBoard = () => {
       index: "2",
       type: "horizontal",
       school_id: "1a2b3c4d5e6",
-      img: "./Assets/2.jpg",
+      img: "",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
         "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
@@ -69,7 +70,7 @@ const ClassTeacherDashBoard = () => {
       index: "3",
       type: "horizontal",
       school_id: "1a2b3c4d5e6",
-      img: "./Assets/3.jpg",
+      img: "",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
         "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
@@ -85,9 +86,9 @@ const ClassTeacherDashBoard = () => {
     },
     {
       index: "4",
-      type: "horizontal",
+      type: "vertical",
       school_id: "1a2b3c4d5e6",
-      img: "./Assets/4.jpg",
+      img: "",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
         "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
@@ -105,7 +106,7 @@ const ClassTeacherDashBoard = () => {
       index: "5",
       type: "horizontal",
       school_id: "1a2b3c4d5e6",
-      img: "./Assets/5.jpg",
+      img: "",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
         "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
@@ -124,6 +125,7 @@ const ClassTeacherDashBoard = () => {
       index: "6",
       type: "horizontal",
       school_id: "1a2b3c4d5e6",
+      img: "",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
         "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",
@@ -141,7 +143,7 @@ const ClassTeacherDashBoard = () => {
       index: "7",
       type: "horizontal",
       school_id: "1a2b3c4d5e6",
-      img: "./Assets/7.jpg",
+      img: "",
       school_name: "Kendriya Vidyalaya No.1, Salt Lake",
       school_address:
         "Labony, Salt Lake, 3rd Ave, EB Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064",

@@ -140,10 +140,10 @@ const StudentPreview = ({ selectedCard }) => {
                     height: "26px",
                   }}
                 >
-                  {selectedCard.img ? (
+                  {localStorage.getItem(selectedCard.index) ? (
                     <div id="student photo" style={{ flexBasis: "26%" }}>
                       <img
-                        src={selectedCard.img}
+                        src={localStorage.getItem(selectedCard.index)}
                         alt=""
                         style={{ width: 74, height: 99 }}
                       />
@@ -461,10 +461,10 @@ const StudentPreview = ({ selectedCard }) => {
                     paddingRight: "20px",
                   }}
                 >
-                  {selectedCard.img ? (
+                  {localStorage.getItem(selectedCard.index) ? (
                     <div id="student photo" style={{ flexBasis: "26%" }}>
                       <img
-                        src={selectedCard.img}
+                        src={localStorage.getItem(selectedCard.index)}
                         alt=""
                         style={{ width: 74, height: 99 }}
                       />

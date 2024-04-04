@@ -18,15 +18,9 @@ const CustomWebcam = ({ onClose, selectedCard, onSubmit }) => {
     setImgSrc(null);
   };
 
-  {
-    /*const handleUpload = () => {
-    onSubmit(imgSrc);
+  const handleUpload = () => {
+    localStorage.setItem(selectedCard.index, imgSrc);
   };
-  
-onClick={handleUpload}
-
-*/
-  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
@@ -541,6 +535,7 @@ onClick={handleUpload}
                   <button
                     style={{ justifyContent: "center", alignItems: "center" }}
                     className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded inline-flex items-center gap-2"
+                    onClick={handleUpload}
                   >
                     <FaUpload />
                     <span>Submit</span>
