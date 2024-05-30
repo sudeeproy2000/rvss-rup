@@ -9,9 +9,14 @@ import { useNavigate } from "react-router-dom";
 
 function AminLTELayoutSchoolHomePage() {
   const navigate1 = useNavigate();
+  const navigate2 = useNavigate();
 
   function goToTeacher() {
     navigate1("/teacher");
+  }
+
+  function goToClass() {
+    navigate2("/class");
   }
 
   //const { schoolData } = useContext(IcardContext);
@@ -245,6 +250,12 @@ function AminLTELayoutSchoolHomePage() {
                     <a href="" class="nav-link">
                       <i class="nav-icon fas fa-file"></i>
                       <p>Teachers</p>
+                    </a>
+                  </li>
+                  <li class="nav-item" onClick={goToClass}>
+                    <a href="" class="nav-link">
+                      <i class="nav-icon fas fa-file"></i>
+                      <p>Class</p>
                     </a>
                   </li>
                 </ul>

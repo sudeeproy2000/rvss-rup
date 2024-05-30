@@ -64,7 +64,7 @@ function StudentExcelBulkUpload() {
       const worksheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[worksheetName];
       const data = XLSX.utils.sheet_to_json(worksheet);
-      setExcelData(data.slice(0, 10));
+      setExcelData(data.slice(0, 100));
     }
   };
 

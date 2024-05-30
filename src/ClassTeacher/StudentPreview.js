@@ -37,6 +37,7 @@ const StudentPreview = ({ selectedCard }) => {
               height: "319px",
               width: "507.5px",
             }}
+            id="IDCard"
           >
             <div
               id="header"

@@ -26,6 +26,7 @@ import Attendance from "./ClassTeacher/Attendance.js";
 
 import ClassTeacherDashBoardTest from "./Test/ClassTeacherDashBoard.js";
 import IdCardHorizontal from "./Test/Test2.js";
+import Class from "./Class/Class.js";
 
 const App = () => {
   const [submittedData, setSubmittedData] = useState(null);
@@ -74,6 +75,8 @@ const App = () => {
           <Route path="/test" element={<ClassTeacherDashBoardTest />} />
 
           <Route path="/icardhorizontal" element={<IdCardHorizontal />} />
+
+          <Route path="/class" element={<Class />} />
 
           <Route path="*" element={<Error />} />
         </Routes>
